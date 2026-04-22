@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TaskManagement プロトタイプ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <a href="#" id="logo" class="logo">TaskManagement</a>
+    <span id="breadcrumb" class="breadcrumb" hidden> &gt; <span id="breadcrumb-title"></span></span>
+    <button id="btn-delete-board" class="btn btn-danger" hidden>削除</button>
+  </header>
+
+  <main>
+    <section id="view-boards" class="view">
+      <h2>ボード一覧</h2>
+      <div id="board-list" class="board-grid"></div>
+    </section>
+
+    <section id="view-board" class="view" hidden>
+      <div id="list-container" class="list-container"></div>
+    </section>
+  </main>
+
+  <div id="modal-card" class="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <span id="modal-title-display" class="modal-title-display"></span>
+        <button id="modal-close" class="modal-close" aria-label="閉じる">×</button>
+      </div>
+      <div class="modal-body">
+        <label>タイトル
+          <input type="text" id="modal-title-input">
+        </label>
+        <label>メモ
+          <textarea id="modal-memo-input" rows="6"></textarea>
+        </label>
+      </div>
+      <div class="modal-footer">
+        <button id="modal-save" class="btn btn-primary">保存</button>
+        <button id="modal-delete" class="btn btn-danger">削除</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
