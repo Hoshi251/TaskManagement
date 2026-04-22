@@ -312,6 +312,7 @@
   document.getElementById('logo').addEventListener('click', (e) => {
     e.preventDefault();
     state.currentBoardId = null;
+    state.editingCardId = null;
     render();
   });
   btnDeleteBoard.addEventListener('click', deleteBoard);
