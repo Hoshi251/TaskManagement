@@ -1,0 +1,28 @@
+package com.taskmanagement.backend.dto;
+
+import com.taskmanagement.backend.entity.Card;
+import lombok.Getter;
+
+import java.time.LocalDateTime;
+
+@Getter
+public class CardResponse {
+
+    private final Long id;
+    private final Long listId;
+    private final String title;
+    private final String description;
+    private final Integer position;
+    private final LocalDateTime createdAt;
+    private final LocalDateTime updatedAt;
+
+    public CardResponse(Card card) {
+        this.id = card.getId();
+        this.listId = card.getTaskList().getId();
+        this.title = card.getTitle();
+        this.description = card.getDescription();
+        this.position = card.getPosition();
+        this.createdAt = card.getCreatedAt();
+        this.updatedAt = card.getUpdatedAt();
+    }
+}
