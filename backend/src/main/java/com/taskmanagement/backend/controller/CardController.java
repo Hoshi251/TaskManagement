@@ -1,12 +1,12 @@
 package com.taskmanagement.backend.controller;
 
+import com.taskmanagement.backend.dto.CardRequest;
 import com.taskmanagement.backend.dto.CardResponse;
 import com.taskmanagement.backend.service.CardService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +25,11 @@ public class CardController {
     @GetMapping("/cards/{id}")
     public CardResponse getById(@PathVariable Long id) {
         return cardService.findById(id);
+    }
+
+    @PostMapping("/lists/{listId}/cards")
+    @ResponseStatus(HttpStatus.CREATED)
+    public CardResponse create(@PathVariable Long listId, @Valid @RequestBody CardRequest request) {
+        return cardService.create(listId, request);
     }
 }
